@@ -1,1 +1,28 @@
-https://script.google.com/macros/s/AKfycbx0FMk_A0UpKbk27zfsIWsJWdCGBFHr15SLfAuKBiEu/exec
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste FUSEX</title>
+</head>
+<body>
+
+<h1>Teste de conexão com Apps Script</h1>
+
+<div id="status">Carregando...</div>
+
+<script>
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx0FMk_A0UpKbk27zfsIWsJWdCGBFHr15SLfAuKBiEu/exec";
+
+fetch(APPS_SCRIPT_URL)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("status").innerHTML =
+      "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+  })
+  .catch(err => {
+    document.getElementById("status").innerText = "Erro: " + err;
+  });
+</script>
+
+</body>
+</html>
